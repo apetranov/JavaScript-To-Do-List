@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="space-y-5 flex flex-col justify-center items-center h-screen">
+        <h1 class="text-5xl font-bold text-indigo-600">To do list</h1>
+        <div>
+            <input class="border border-1 py-2 rounded-xl" type="text">
+            <button id="addTask" class="cursor-pointer bg-indigo-600 text-white font-bold px-5 py-2 rounded-full">Add task</button>
+        </div>
+        <div id="tasksDiv" class="flex flex-col justify-center items-center space-y-10">
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
