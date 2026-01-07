@@ -1,18 +1,19 @@
 let input = document.querySelector('input')
 let addTask = document.querySelector('#addTask')
 let tasksDiv = document.querySelector('#tasksDiv')
+let showAllBtn = document.getElementById('showAll')
+let showCompletedBtn = document.getElementById('showCompleted')
+
 
 let tasks = []
 
-addTask.addEventListener('click', () => {
-    if (input.value.length === 0) {
-        alert("Task is empty!")
-        return
-    }
-
+function displayAllTasks() {
+    tasksDiv.innerHTML = '';
+    for (let i = 0; i < tasks.length; i++) {
+        
     let task = document.createElement('div')
     let taskText = document.createElement('h1')
-    taskText.textContent = input.value
+    taskText.textContent = tasks[i].text
     task.appendChild(taskText)
 
     let buttonsDiv = document.createElement('div')
@@ -42,6 +43,64 @@ addTask.addEventListener('click', () => {
     task.classList.add('justify-between')
     task.classList.add('space-x-10')
     tasksDiv.appendChild(task)
-    input.value = ''
+    }
+}
+
+function displayCompleted() {
+
+}
+
+addTask.addEventListener('click', () => {
+    if (input.value.length === 0) {
+        alert("Task is empty!")
+        return
+    }
+
+    let taskObj = {
+        text: input.value,
+        completed: false
+    }
+
+    tasks.push(taskObj)
+
+    // let task = document.createElement('div')
+    // let taskText = document.createElement('h1')
+    // taskText.textContent = input.value
+    // task.appendChild(taskText)
+
+    // let buttonsDiv = document.createElement('div')
+    // let complete = document.createElement('span')
+    // complete.textContent = '✅'
+    // complete.classList.add('cursor-pointer')
+    // complete.addEventListener('click', () => {
+    //     taskText.classList.toggle('completed')
+    // })
+
+    // let del = document.createElement('span')
+    // del.textContent = '🗑️'
+    // del.classList.add('cursor-pointer')
+    // del.addEventListener('click', () => {
+    //     tasksDiv.removeChild(task)
+    // })
+
+    // buttonsDiv.appendChild(complete)
+    // buttonsDiv.appendChild(del)
+    // task.appendChild(buttonsDiv)
+
+    // task.classList.add('shadow-xl')
+    // task.classList.add('rounded-2xl')
+    // task.classList.add('px-7')
+    // task.classList.add('py-3')
+    // task.classList.add('flex')
+    // task.classList.add('justify-between')
+    // task.classList.add('space-x-10')
+    // tasksDiv.appendChild(task)
+    // input.value = ''
+
+    displayAllTasks()
+
 })
 
+showAllBtn.addEventListener('click', () => {
+    displayAllTasks();
+})
